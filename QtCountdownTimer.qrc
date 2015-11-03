@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/sounds">
+        <file alias="notification.wav">hykenfreak_notification-chime_CC-BY.wav</file>
+    </qresource>
+</RCC>
