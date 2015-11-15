@@ -3,28 +3,37 @@ QT += core gui widgets multimedia
 TARGET = QtCountdownTimer
 TEMPLATE = app
 
-CONFIG += staticlib qt warn_on debug
+CONFIG += warn_on
 
-QMAKE_CXXFLAGS += -std=c++11 -pedantic -Wall -Wextra -O0 -ggdb -g3
+QMAKE_CXXFLAGS += -std=c++1y -pedantic -Wall -Wextra
 
-SOURCES += main.cpp\
-        MainWindow.cpp \
-        TimerTableModel.cpp \
-        CountdownTimer.cpp \
-        TimerDialog.cpp \
-        TimerStatus.cpp \
-        PausableTimer.cpp
+CONFIG(debug, debug|release) {
+    QMAKE_CXXFLAGS += -O0 -ggdb -g3
+}
 
-HEADERS += MainWindow.h \
-        TimerTableModel.h \
-        CountdownTimer.h \
-        TimerDialog.h \
-        TimerStatus.h \
-        PausableTimer.h
+INCLUDEPATH += include/
 
-FORMS += MainWindow.ui \
-      TimerDialog.ui
+SOURCES += \
+    src/main.cpp \
+    src/MainWindow.cpp \
+    src/TimerTableModel.cpp \
+    src/CountdownTimer.cpp \
+    src/TimerDialog.cpp \
+    src/TimerStatus.cpp \
+    src/PausableTimer.cpp
 
-DISTFILES += hykenfreak_notification-chime_CC-BY.wav
+HEADERS += \
+    include/MainWindow.h \
+    include/TimerTableModel.h \
+    include/CountdownTimer.h \
+    include/TimerDialog.h \
+    include/TimerStatus.h \
+    include/PausableTimer.h
+
+FORMS += \
+    ui/MainWindow.ui \
+    ui/TimerDialog.ui
 
 RESOURCES += QtCountdownTimer.qrc
+
+DISTFILES += media/hykenfreak_notification-chime_CC-BY.wav

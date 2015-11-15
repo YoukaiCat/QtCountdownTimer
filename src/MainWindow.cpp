@@ -66,7 +66,7 @@ void MainWindow::showNotificationAboutTimout()
 {
     auto timer = static_cast<CountdownTimer *>(sender());
     icon.showMessage("Timeout", QString("Note: %1\n Time: %2").arg(timer->getNote()).arg(timer->getTime().toString("HH:mm:ss")));
-    player.setMedia(QUrl("qrc:/sounds/notification.wav"));
+    player.setMedia(QUrl("qrc:/media/notification"));
     player.play();
 }
 
