@@ -1,5 +1,4 @@
+*.pro.user*
 .o
 .so
 ui_*
-*.pro.user
-*.wav
